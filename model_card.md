@@ -1,7 +1,7 @@
 # Model Card
 
 ## Model Details
-- This is a random forest classifier trained model that predicts whether an individuals salary is greater than 50k based on demographic features from the census dataset. The featues include education, workclass, occupation, marital status, and sex. One hot encoding is used for categorical featues and label binarization.
+- This is a random forest classifier trained model that predicts whether an individuals salary is greater than 50k based on demographic features from the census dataset. The featues include education, workclass, occupation, marital status, and sex. One hot encoding is used for categorical features and label binarization.
 
 ## Intended Use
 - This model is intended to show supervised maching learning workflows for binary classification.

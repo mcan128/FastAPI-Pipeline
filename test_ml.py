@@ -1,9 +1,10 @@
 import pytest
 import numpy as np
 import pandas as pd
-from ml.model import train_model, inference, save_model, load_model, compute_model_metrics
+from ml.model import train_model, inference, compute_model_metrics
 from ml.data import process_data
 from sklearn.ensemble import RandomForestClassifier
+
 
 @pytest.fixture
 def sample_data():
@@ -30,16 +31,29 @@ def cat_features():
 
 
 def test_one(sample_data, cat_features):
-    X, y, encoder, lb = process_data(sample_data, categorical_features=cat_features, label="salary", training=True)
+    X, y, encoder, lb = process_data(
+        sample_data,
+        categorical_features=cat_features,
+        label="salary",
+        training=True
+    )
     model = train_model(X, y)
     preds = inference(model, X)
     assert isinstance(preds, np.ndarray), "Not a numpy array"
-    
+
 
 def test_two(sample_data, cat_features):
-    X, y, _, _ = process_data(sample_data, categorical_features=cat_features, label="salary", training=True)
+    X, y, _, _ = process_data(
+        sample_data,
+        categorical_features=cat_features,
+        label="salary",
+        training=True
+    )
     model = train_model(X, y)
-    assert isinstance(model, RandomForestClassifier), "Not a RandomForestClassifier model"
+    assert isinstance(
+        model,
+        RandomForestClassifier
+    ), "Not a RandomForestClassifier model"
 
 
 def test_three():
